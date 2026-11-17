@@ -1,0 +1,31 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
+
+@theme {
+    --color-navy: #142B3B;
+    --color-navy-dark: #0c1c27;
+    --color-navy-light: #1f4057;
+    --color-teal: #28B8A7;
+    --color-teal-dark: #20998a;
+    --color-teal-light: #e6f8f6;
+    --color-amber: #F2BD63;
+    --color-amber-dark: #dfa748;
+    --color-slate-dark: #263746;
+    --color-slate-light: #64748b;
+    --color-surface-bg: #F5F8F7;
+    --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Custom smooth transitions & animations */
+html {
+    scroll-behavior: smooth;
+    background-color: var(--color-surface-bg);
+    color: var(--color-slate-dark);
+}
+
+[x-cloak] {
+    display: none !important;
+}
