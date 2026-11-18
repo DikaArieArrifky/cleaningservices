@@ -19,5 +19,8 @@
     "dependencies": {
         "alpinejs": "^3.17.5",
         "lucide": "^1.74.0"
+    },
+    "overrides": {
+        "esbuild": "^0.25.0"
     }
 }

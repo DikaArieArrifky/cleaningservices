@@ -18,7 +18,10 @@ class DatabaseSeeder extends Seeder
             GallerySeeder::class,
             TestimonialSeeder::class,
             SiteSettingSeeder::class,
-            BookingSeeder::class,
         ]);
+
+        if (! app()->environment('production')) {
+            $this->call(BookingSeeder::class);
+        }
     }
 }

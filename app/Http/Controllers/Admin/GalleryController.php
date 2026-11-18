@@ -32,10 +32,11 @@ class GalleryController extends Controller
             'is_featured' => ['nullable', 'boolean'],
         ]);
 
+        $disk = config('filesystems.upload_disk', 'public');
         $image = null;
         if ($request->hasFile('image_file')) {
-            $path = $request->file('image_file')->store('galleries', 'public');
-            $image = Storage::url($path);
+            $path = $request->file('image_file')->store('galleries', $disk);
+            $image = Storage::disk($disk)->url($path);
         } elseif ($request->filled('image_url')) {
             $image = $request->input('image_url');
         }
@@ -77,9 +78,11 @@ class GalleryController extends Controller
             'is_featured' => $request->boolean('is_featured'),
         ];
 
+        $disk = config('filesystems.upload_disk', 'public');
+
         if ($request->hasFile('image_file')) {
-            $path = $request->file('image_file')->store('galleries', 'public');
-            $data['image'] = Storage::url($path);
+            $path = $request->file('image_file')->store('galleries', $disk);
+            $data['image'] = Storage::disk($disk)->url($path);
         } elseif ($request->filled('image_url')) {
             $data['image'] = $request->input('image_url');
         }

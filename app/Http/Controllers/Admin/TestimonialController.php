@@ -36,8 +36,9 @@ class TestimonialController extends Controller
 
         $avatar = null;
         if ($request->hasFile('avatar_file')) {
-            $path = $request->file('avatar_file')->store('avatars', 'public');
-            $avatar = Storage::url($path);
+            $disk = config('filesystems.upload_disk', 'public');
+            $path = $request->file('avatar_file')->store('avatars', $disk);
+            $avatar = Storage::disk($disk)->url($path);
         } elseif ($request->filled('avatar_url')) {
             $avatar = $request->input('avatar_url');
         }
@@ -82,8 +83,9 @@ class TestimonialController extends Controller
         ];
 
         if ($request->hasFile('avatar_file')) {
-            $path = $request->file('avatar_file')->store('avatars', 'public');
-            $data['avatar'] = Storage::url($path);
+            $disk = config('filesystems.upload_disk', 'public');
+            $path = $request->file('avatar_file')->store('avatars', $disk);
+            $data['avatar'] = Storage::disk($disk)->url($path);
         } elseif ($request->filled('avatar_url')) {
             $data['avatar'] = $request->input('avatar_url');
         }

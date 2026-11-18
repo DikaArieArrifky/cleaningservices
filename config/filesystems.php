@@ -17,6 +17,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Default Upload Disk
+    |--------------------------------------------------------------------------
+    |
+    | Disk used for storing public media uploads such as service images,
+    | gallery documentation, and client testimonial avatars.
+    |
+    */
+    'upload_disk' => env('FILESYSTEM_UPLOAD_DISK', 'public'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Filesystem Disks
     |--------------------------------------------------------------------------
     |

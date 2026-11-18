@@ -95,7 +95,7 @@ class GallerySeeder extends Seeder
         ];
 
         foreach ($galleries as $item) {
-            Gallery::create($item);
+            Gallery::updateOrCreate(['title' => $item['title']], $item);
         }
     }
 }

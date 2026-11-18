@@ -116,6 +116,13 @@
                         <i data-lucide="settings" class="w-4 h-4"></i>
                         <span>Pengaturan Web</span>
                     </a>
+
+                    <!-- Profile & Security -->
+                    <a href="{{ route('admin.profile.edit') }}"
+                       class="flex items-center gap-3 px-3.5 py-3 rounded-xl transition {{ request()->routeIs('admin.profile.*') ? 'bg-[#28B8A7] text-white font-bold shadow-md shadow-[#28B8A7]/25' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
+                        <i data-lucide="user-check" class="w-4 h-4"></i>
+                        <span>Profil & Keamanan</span>
+                    </a>
                 </nav>
             </div>
 
@@ -155,18 +162,18 @@
                     </h2>
                 </div>
 
-                <div class="flex items-center gap-4">
+                <a href="{{ route('admin.profile.edit') }}" class="flex items-center gap-4 hover:opacity-80 transition group">
                     <div class="text-right hidden sm:block">
-                        <span class="text-xs font-bold text-[#142B3B] block">{{ Auth::user()->name ?? 'Administrator' }}</span>
+                        <span class="text-xs font-bold text-[#142B3B] group-hover:text-[#28B8A7] transition block">{{ Auth::user()->name ?? 'Administrator' }}</span>
                         <span class="text-[10px] text-emerald-600 font-semibold flex items-center justify-end gap-1">
                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Online
                         </span>
                     </div>
 
-                    <div class="w-9 h-9 rounded-full bg-[#142B3B] text-white flex items-center justify-center font-bold text-xs shadow">
+                    <div class="w-9 h-9 rounded-full bg-[#142B3B] text-white flex items-center justify-center font-bold text-xs shadow group-hover:bg-[#28B8A7] transition">
                         {{ strtoupper(substr(Auth::user()->name ?? 'A', 0, 1)) }}
                     </div>
-                </div>
+                </a>
             </header>
 
             <!-- Flash Alert Messages -->

@@ -15,6 +15,13 @@ class BookingSeeder extends Seeder
      */
     public function run(): void
     {
+        // Never seed sample bookings in production environment
+        if (app()->environment('production')) {
+            $this->command?->info('Skipping sample bookings in production.');
+
+            return;
+        }
+
         $carWashCat = ServiceCategory::where('slug', 'car-wash')->first();
         $homeCleanCat = ServiceCategory::where('slug', 'home-cleaning')->first();
 

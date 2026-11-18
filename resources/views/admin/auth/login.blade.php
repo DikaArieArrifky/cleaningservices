@@ -60,7 +60,7 @@
                 <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Email Administrator</label>
                 <div class="relative">
                     <i data-lucide="mail" class="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2"></i>
-                    <input type="email" name="email" value="{{ old('email', 'admin@jasmineservices.com') }}" required autofocus
+                    <input type="email" name="email" value="{{ old('email', app()->isLocal() ? 'admin@jasmineservices.com' : '') }}" required autofocus
                            class="w-full pl-11 pr-4 py-3.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#28B8A7] text-sm font-medium"
                            placeholder="admin@jasmineservices.com">
                 </div>

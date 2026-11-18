@@ -55,9 +55,11 @@ class ServiceController extends Controller
             $data['features'] = array_values($lines);
         }
 
+        $disk = config('filesystems.upload_disk', 'public');
+
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('services', 'public');
-            $data['image'] = Storage::url($path);
+            $path = $request->file('image')->store('services', $disk);
+            $data['image'] = Storage::disk($disk)->url($path);
         }
 
         $data['is_active'] = $request->boolean('is_active', true);
@@ -89,9 +91,11 @@ class ServiceController extends Controller
             $data['features'] = array_values($lines);
         }
 
+        $disk = config('filesystems.upload_disk', 'public');
+
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('services', 'public');
-            $data['image'] = Storage::url($path);
+            $path = $request->file('image')->store('services', $disk);
+            $data['image'] = Storage::disk($disk)->url($path);
         }
 
         $data['is_active'] = $request->boolean('is_active', true);

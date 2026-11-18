@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Preview — Car Wash & Home Cleaning Service</title>
+  <meta name="description" content="Interactive booking workflow preview for car wash and residential home cleaning services.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- Top Prototype Disclaimer Banner -->
+  <aside class="preview-banner">
+    <strong>CLIENT PREVIEW:</strong> This is an interactive prototype for design, layout, and structure review before final website launch.
+  </aside>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="Home">
+        <div class="brand-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+        </div>
+        <div class="brand-text">
+          <span>Car Wash & Home Cleaning</span>
+          <span>Service Solutions</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="car-wash.html" class="nav-link">Car Wash</a>
+        <a href="home-cleaning.html" class="nav-link">Home Cleaning</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="booking.html" class="btn btn-primary btn-sm active">Booking Preview</a>
+        <button class="mobile-toggle" aria-label="Toggle Navigation Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Header Banner -->
+    <header class="page-header">
+      <div class="container">
+        <span class="section-badge">Booking Workflow Prototype</span>
+        <h1>Schedule Service Preview</h1>
+        <p>Experience how customers effortlessly select their category, configure service options, and initiate booking requests.</p>
+      </div>
+    </header>
+
+    <!-- Booking Form Section -->
+    <section class="section">
+      <div class="container" style="max-width: 960px;">
+        
+        <!-- Simulation Notice Box -->
+        <div style="background-color: var(--accent-teal-light); border: 1px solid var(--accent-teal-subtle); border-radius: var(--radius-md); padding: 1.25rem 1.5rem; margin-bottom: 2rem; display: flex; align-items: flex-start; gap: 1rem;">
+          <div style="color: var(--accent-teal); flex-shrink: 0; margin-top: 0.1rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          </div>
+          <div style="font-size: 0.925rem; color: var(--text-dark); line-height: 1.5;">
+            <strong>Prototype Simulation Mode:</strong> You can fill in and submit this form freely. No customer information is recorded, stored in databases, or sent across any network.
+          </div>
+        </div>
+
+        <div class="form-card">
+          <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 1.25rem; margin-bottom: 2rem;">
+            <h2 style="font-size: 1.5rem; margin-bottom: 0.35rem;">Online Booking Form</h2>
+            <p style="color: var(--text-muted); font-size: 0.925rem; margin: 0;">Select your required services and test the submission modal.</p>
+          </div>
+
+          <form id="previewBookingForm">
+            <div class="form-grid">
+              
+              <!-- Category Selection -->
+              <div class="form-group">
+                <label class="form-label" for="serviceCategory">Service Category <span class="required">*</span></label>
+                <select id="serviceCategory" class="form-control" required>
+                  <option value="">Select Category...</option>
+                  <option value="car-wash">Car Wash & Detailing</option>
+                  <option value="home-cleaning">Home Cleaning Service</option>
+                </select>
+                <span class="form-helper">Choosing a category dynamically filters available packages.</span>
+              </div>
+
+              <!-- Service Type (Dynamic) -->
+              <div class="form-group">
+                <label class="form-label" for="serviceType">Service Type <span class="required">*</span></label>
+                <select id="serviceType" class="form-control" required disabled>
+                  <option value="">Please select a category first...</option>
+                </select>
+                <span class="form-helper">Select your specific cleaning package.</span>
+              </div>
+
+              <!-- Customer Name -->
+              <div class="form-group">
+                <label class="form-label" for="customerName">Customer Name <span class="required">*</span></label>
+                <input type="text" id="customerName" class="form-control" placeholder="e.g. Budi Santoso" required>
+              </div>
+
+              <!-- WhatsApp Number -->
+              <div class="form-group">
+                <label class="form-label" for="customerPhone">WhatsApp Number <span class="required">*</span></label>
+                <input type="tel" id="customerPhone" class="form-control" placeholder="e.g. 081288776655" required>
+                <span class="form-helper">Used for automated dispatch & confirmation in the live version.</span>
+              </div>
+
+              <!-- Preferred Date -->
+              <div class="form-group full-width">
+                <label class="form-label" for="serviceDate">Preferred Date <span class="required">*</span></label>
+                <input type="date" id="serviceDate" class="form-control" required>
+              </div>
+
+              <!-- Service Location / Address -->
+              <div class="form-group full-width">
+                <label class="form-label" for="serviceAddress">Service Address / Location <span class="required">*</span></label>
+                <textarea id="serviceAddress" class="form-control" rows="3" placeholder="Enter complete home address or workshop visit preference..." required></textarea>
+              </div>
+
+              <!-- Additional Notes -->
+              <div class="form-group full-width">
+                <label class="form-label" for="serviceNotes">Additional Notes (Optional)</label>
+                <textarea id="serviceNotes" class="form-control" rows="2" placeholder="Vehicle model, property size, or special focus areas..."></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="form-group full-width" style="margin-top: 1rem;">
+                <button type="submit" class="btn btn-primary btn-lg btn-block" id="bookingSubmitBtn">
+                  <span>Submit Booking Preview</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+                <span class="form-helper" style="text-align: center; display: block; margin-top: 0.75rem;">
+                  Clicking this button will trigger the client preview confirmation notice.
+                </span>
+              </div>
+
+            </div>
+          </form>
+        </div>
+
+        <!-- Workflow Specification Feature Box -->
+        <div style="background-color: var(--white); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2rem; margin-top: 2.5rem;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 1rem; color: var(--primary-navy);">
+            Final Production Architecture Comparison
+          </h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; font-size: 0.9rem; color: var(--text-body);">
+            <div style="background-color: var(--bg-light); border-radius: var(--radius-md); padding: 1.25rem;">
+              <h4 style="font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--accent-teal-dark);">In this Client Preview:</h4>
+              <p style="margin: 0; color: var(--text-muted); line-height: 1.5;">
+                Client reviews the interface, field arrangement, responsive layout, and service taxonomy without requiring a backend server or database setup.
+              </p>
+            </div>
+            <div style="background-color: var(--bg-light); border-radius: var(--radius-md); padding: 1.25rem;">
+              <h4 style="font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--primary-navy);">In the Full Laravel Version:</h4>
+              <p style="margin: 0; color: var(--text-muted); line-height: 1.5;">
+                Generates unique booking code <code>JAS-YYYYMMDD-XXXX</code>, saves to MySQL, triggers WhatsApp instant redirect with prefilled order details, and notifies admin dashboard.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Interactive Modal Notification (Preview Notice) -->
+  <div class="modal-backdrop" id="previewModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-dialog">
+      <div class="modal-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+      </div>
+      <h3 class="modal-title" id="modalTitle">Website Preview Notice</h3>
+      <p class="modal-text" id="modalNoticeText">
+        This is a website preview. Booking functionality will be available in the final version.
+      </p>
+      <button type="button" class="btn btn-navy btn-block" id="modalCloseBtn">Close Preview Notice</button>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-col">
+          <div class="brand-logo" style="color: var(--white); margin-bottom: 1rem;">
+            <div class="brand-icon" style="background-color: var(--accent-teal); color: var(--primary-navy);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+            </div>
+            <span>Car Wash & Home Cleaning</span>
+          </div>
+          <p style="font-size: 0.925rem; color: rgba(255, 255, 255, 0.75); line-height: 1.6; max-width: 320px;">
+            A premier service website architecture featuring specialized vehicle detailing and residential cleaning solutions.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="car-wash.html">Car Wash Services</a></li>
+            <li><a href="home-cleaning.html">Home Cleaning</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="car-wash.html">Exterior Wash</a></li>
+            <li><a href="car-wash.html">Interior Sanitizing</a></li>
+            <li><a href="home-cleaning.html">Deep Cleaning</a></li>
+            <li><a href="home-cleaning.html">Kitchen Degreasing</a></li>
+            <li><a href="booking.html">Booking Preview</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Business Details</h4>
+          <div style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.75); display: flex; flex-direction: column; gap: 0.6rem;">
+            <p><strong>Brand:</strong> Car Wash & Home Cleaning</p>
+            <p><strong>Address:</strong> To Be Confirmed by Client</p>
+            <p><strong>WhatsApp:</strong> To Be Confirmed by Client</p>
+            <p><strong>Hours:</strong> Mon - Sun: 08:00 - 18:00</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 <strong>Car Wash & Home Cleaning</strong>. All rights reserved.
+        </div>
+        <div>
+          Client Preview Prototype &bull; Pure HTML5 / CSS3 / Vanilla JS
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>
+

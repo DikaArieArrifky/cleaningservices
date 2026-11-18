@@ -63,8 +63,19 @@ class TestimonialSeeder extends Seeder
             ],
         ];
 
+        $isProduction = app()->environment('production');
+
         foreach ($testimonials as $t) {
-            Testimonial::create($t);
+            if ($isProduction) {
+                // In production, keep seeded sample testimonials as unpublished drafts
+                // until real customer reviews are submitted/curated.
+                $t['is_published'] = false;
+            }
+
+            Testimonial::updateOrCreate(
+                ['client_name' => $t['client_name']],
+                $t
+            );
         }
     }
 }
